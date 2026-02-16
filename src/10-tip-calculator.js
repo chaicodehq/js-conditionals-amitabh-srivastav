@@ -31,4 +31,24 @@
  */
 export function calculateTip(billAmount, serviceRating) {
   // Your code here
+  let tip;
+  
+  const tipBracket =[0,5,10,15,20,25];
+  if(billAmount<=0){
+    tip = 0;
+  }else if(isNaN(serviceRating)||serviceRating>5||serviceRating<=0||!Number.isInteger(serviceRating)){
+    tip = 0;
+  }else{
+    tip = tipBracket[serviceRating];
+  }
+  const tipAmt=billAmount * tip / 100;
+  const total =billAmount * (100+tip) / 100;
+  const tipDetails = {
+    tipPercentage:tip,
+    tipAmount:tipAmt ,
+    totalAmount: total
+  }
+  if(tip==0){return null;}else{
+  return tipDetails;}
+  
 }

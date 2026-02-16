@@ -26,4 +26,18 @@
  */
 export function calculateGrade(score, hasExtraCredit) {
   // Your code here
+  const grades = ["A","B","C","D","F"];
+  let grade;
+  if(isNaN(score)||score<0 || score>100){return "INVALID";}else
+  {
+    if (hasExtraCredit) { score= score+5;}
+    if (score>100 ){score=100;}
+    if (score>=0 && score<60){ grade = grades[4];
+    }else if(score>=60 &&score<70){ grade = grades[3];
+    }else if(score>=70 &&score<80){ grade = grades[2];
+    }else if(score>=80 &&score<90){ grade = grades[1];
+    }else if(score>=90){ 
+      grade = grades[0];
+    }
+    return grade;}
 }

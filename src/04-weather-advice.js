@@ -22,4 +22,29 @@
  */
 export function getWeatherAdvice(temperature, isRaining) {
   // Your code here
+    const predictions = [
+    "Too hot for hiking - stay indoors and hydrate",
+    "Great weather for hiking - don\'t forget sunscreen",
+    "Warm but rainy - consider indoor activities",
+    "Perfect hiking weather - enjoy the trails",
+    "Cool and rainy - bring waterproof gear if hiking",
+    "Chilly - wear layers for your hike",
+    "Cold and wet - best to stay indoors",
+    "Too cold - stay warm indoors"
+      ];  let temp=temperature;
+  let prediction;
+  if(isNaN(temp)|| temp>60){return "INVALID";}else
+  {
+    if (temp>=35){ prediction = predictions[0];
+    }else if(temp>=25 &&temp<35 && !isRaining){ prediction = predictions[1];
+    }else if(temp>=25 &&temp<35&&isRaining){ prediction = predictions[2];   
+    }else if(temp>=15 &&temp<25 && !isRaining){ prediction = predictions[3];
+    }else if(temp>=15 &&temp<25 && isRaining){ prediction = predictions[4];
+    }else if(temp>=5 &&temp<15 && !isRaining){ prediction = predictions[5];
+    }else if(temp>=5 &&temp<15 && isRaining){ prediction = predictions[6];
+    }else if(temp<5){ 
+      prediction = predictions[7];
+    }
+    return prediction;}
 }
+

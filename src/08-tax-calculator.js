@@ -27,4 +27,23 @@
  */
 export function calculateTax(income) {
   // Your code here
+  const slabRates = [0,.1,.2,.3];
+  let tax=0
+  let balance=0;
+  if (income>=70000){
+    //income >=70,000
+    balance=income-70000;
+    tax = 2000+8000+balance*slabRates[3];
+  }else if(income>=30000){
+    //income >=30,000 but <70000
+    balance=income-30000;
+    tax = 2000+balance*slabRates[2];
+  }else if(income>=10000){
+    //income >30,000 but > 10000
+    balance=income-10000;
+    tax = balance*slabRates[1];
+  }else{
+    tax = 0;
+  }   
+  return tax;
 }

@@ -32,4 +32,53 @@
  */
 export function getSeasonActivity(month, temperature) {
   // Your code here
+  let recommendation;
+  let mausam;
+  const temp= temperature;
+  const seasons =["Winter","Spring","Summer","Autumn"];
+  const activities = ["skiing","ice skating", "hiking", "museum visit", "swimming", "cycling", "nature walk", "reading at a cafe"];
+  if(month>12||month<1){
+    recommendation=null;
+    return null;
+  }
+  else{
+    if(month<3||month==12){
+      mausam = seasons[0];
+      if(temp<0){
+        recommendation=activities[0];}
+      else{
+        recommendation=activities[1];
+      }
+    }
+    else if(month>=3&&month<=5){
+      mausam = seasons[1];
+      if(temp>20){
+        recommendation=activities[2];}
+      else{
+        recommendation=activities[3];
+      }      
+    }
+    else if(month>=6&&month<=8){
+      mausam = seasons[2];
+      if(temp>35){
+        recommendation=activities[4];}
+      else{
+        recommendation=activities[5];
+      }      
+    }    
+    else if(month>=9&&month<=11){
+      mausam = seasons[3];
+      if(temp>15){
+        recommendation=activities[6];}
+      else{
+        recommendation=activities[7];
+      }      
+    }
+    const suggestion = {
+      season: mausam,
+       activity: recommendation
+    };
+    return suggestion; 
+  }
+
 }
